@@ -4,6 +4,7 @@
     state: installed
   register: out
 
-- name: out
-  ansible.builtin.debug:
-    msg: "{{out}}"
+- name: removing old nginx documents
+  ansible.builtin.file:
+    path: /usr/share/nginx/html
+    state: absent
