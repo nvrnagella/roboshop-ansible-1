@@ -43,18 +43,8 @@
     enabled: yes
     state: restarted
 
-- name: copy mongo repo file
-  ansible.builtin.copy:
-    src: mongodb.repo
-    dest: /etc/yum.repos.d/mongodb.repo
-
-- name: install mongodb
-  ansible.builtin.yum:
-    name: mongodb-org-shell
-    state: installed
-
 - name: load schema to mongo server
   community.mongodb.mongodb_shell:
-    login_host: mongodb-dev.nvrnagella.online:27017
+    login_host: mongodb-dev.nvrnagella.online
     file: "/app/schema/catalogue.js"
     idempotent: yes
