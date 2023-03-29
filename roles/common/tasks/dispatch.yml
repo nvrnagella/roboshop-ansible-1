@@ -10,6 +10,6 @@
   ansible.builtin.shell: go mod init dispatch ; go get ; go build
 
 - name: systemD setup
-  ansible.builtin.systemd: "systemd.yml"
+  ansible.builtin.include_tasks: "systemd.yml"
 
 
