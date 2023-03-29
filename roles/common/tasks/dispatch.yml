@@ -8,6 +8,8 @@
 
 - name: download golang depedencies
   ansible.builtin.shell: go mod init dispatch ; go get ; go build
+  args:
+    chdir: /app
 
 - name: systemD setup
   ansible.builtin.include_tasks: "systemd.yml"
