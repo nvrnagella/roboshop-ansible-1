@@ -9,4 +9,4 @@
     state: installed
 
 - name: load schema to mongo server
-  ansible.builtin.shell: mongo --host mongodb-dev.nvrnagella.online </app/schema/catalogue.js
+  ansible.builtin.shell: mongo --host mongodb-dev.nvrnagella.online </app/schema/{{component}}.js
