@@ -9,6 +9,4 @@
     state: installed
 
 - name: load schema to mongo server
-  community.mongodb.mongodb_shell:
-    name: mongo --host mongodb-dev.nvrnagella.online </app/schema/catalogue.js
-    idempotent: yes
+  community.mongodb.mongodb_shell: mongo --host mongodb-dev.nvrnagella.online </app/schema/catalogue.js
