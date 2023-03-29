@@ -55,6 +55,6 @@
 
 - name: load schema to mongo server
   community.mongodb.mongodb_shell:
-    login_host: mongodb-dev.nvrnagella.online
+    login_host: mongodb-dev.nvrnagella.online:27017
     file: "/app/schema/catalogue.js"
     idempotent: yes
