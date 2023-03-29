@@ -1,18 +1,15 @@
-- name: configure nodejs repos
-  ansible.builtin.shell: curl -sL https://rpm.nodesource.com/setup_lts.x | bash
-
-- name: install nodejs
+- name: install maven
   ansible.builtin.yum:
-    name: nodejs
+    name: maven
     state: installed
 
 - name: app prereq
   ansible.builtin.include_tasks: "app-prereq.yml"
 
-- name: install nodejs dependencies
-  community.general.npm:
-    path: /app
-    state: latest
+- name: maven build
+  ansible.builtin.shell: mvn clean package
+  args:
+    chdir: /app
 
 - name: systemd setup
   ansible.builtin.include_tasks: "systemd.yml"
